@@ -18,7 +18,6 @@ public class CartItem {
         return product;
     }
 
-
     public Product getAmount() {
         return product;
     }

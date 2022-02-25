@@ -19,7 +19,9 @@ public class PointOfSale {
     public float getTotal() {
         return getTotal();
     }
-    public void addToCart(CartItem cartItem, Product product){
+    public void addToCart(CartItem cartItems, Product product){
+        return cartItems.getQuantity();
+        return product.getName();
     }
 
 
