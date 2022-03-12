@@ -1,8 +1,5 @@
 package uaslp.objetos.parcial1.examen.pos;
 
-
-import java.util.ArrayList;
-
 public class CartItem {
     private int quantity;
     private Product product;
@@ -10,15 +7,24 @@ public class CartItem {
     public int getQuantity() {
         return quantity;
     }
-    public int setQuantity(int quantity){
-        return quantity;
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public Product getProductName() {
+    public void setProduct(Product product){
+        this.product = product;
+    }
+
+    public Product getProduct() {
         return product;
     }
 
-    public Product getAmount() {
-        return product;
+    public String getProductName(){
+        return product.getName();
+    }
+
+    public float getAmount(){
+        return product.getAmount();
     }
 }

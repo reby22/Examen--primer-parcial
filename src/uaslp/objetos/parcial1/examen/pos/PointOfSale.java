@@ -1,33 +1,48 @@
 package uaslp.objetos.parcial1.examen.pos;
 
-import uaslp.objetos.parcial1.examen.pos.CartItem;
-import uaslp.objetos.parcial1.examen.pos.Product;
-
-
 import java.util.ArrayList;
 
 public class PointOfSale {
-    private ArrayList<Product> products;
-    private ArrayList<CartItem> cartItems;
+    private ArrayList<CartItem> items = new ArrayList<>();
 
+    public void addToCart(int quantity, Product product){
+        for(CartItem cartItem : items){
+            if(cartItem.getProductName().equals(product.getName())){
+                cartItem.setQuantity(cartItem.getQuantity() + quantity);
+                quantity = 0;
+            }
+        }
 
-
-    public String getCountByName(String name) {
-        return name;
+        if(quantity != 0){
+            CartItem item = new CartItem();
+            item.setQuantity(quantity);
+            item.setProduct(product);
+            items.add(item);
+        }
     }
 
-    public float getTotal() {
-        return getTotal();
-    }
-    public void addToCart(CartItem cartItems, Product product){
-        return cartItems.getQuantity();
-        return product.getName();
-    }
+    public float getTotal(){
+        float total = 0;
 
-
-    public ArrayList<CartItem> getProducts() {
-        return cartItems;
+        for(CartItem cartItem: items){
+            total = total + cartItem.getQuantity()*cartItem.getAmount();
+        }
+        return total;
     }
 
+    public ArrayList<CartItem> getProducts(){
+        return new ArrayList<>(items);
+    }
 
+    public int getCountByName(String name) {
+        int count = 0;
+
+        for (CartItem cartitem : items) {
+            if (cartitem.getProductName().equals(name)) {
+                count = cartitem.getQuantity();
+            }
+        }
+
+        return count;
+    }
 }

@@ -8,12 +8,12 @@ public class Product {
         this.name = name;
         this.amount = amount;
     }
+
     public String getName(){
-        return  name;
+        return name;
     }
+
     public float getAmount(){
         return amount;
     }
-
-
 }
